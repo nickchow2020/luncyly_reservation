@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Customers{% endblock %}
+{% block content %}
+<form class="form-inline" method="POST">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="customerName">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search By Customer First Name</button>
+  <a class="btn btn-outline-secondary ml-4" style="float: right" href="/best/customers">Top 10 Customers</a></p>
+  <a class="btn btn-outline-secondary ml-4" style="float: right" href="/">Home</a></p>
+</form>
+
+<a class="btn btn-primary" style="float: right" href="/add/">Add a Customer</a></p>
+
+<h1>Customers</h1>
+
+<ul style="column-count: 4">
+  {% for customer in customers %}
+  <li><a href="/{{ customer.id }}/">{{ customer.firstName }} {{ customer.lastName }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
